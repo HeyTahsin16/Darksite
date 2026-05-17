@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background: #000000;
+  color: #e8d5ff;
+  font-family: 'Syne', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button { font-family: inherit; cursor: pointer; }
+input, textarea { font-family: inherit; }
+
+/* ── Panel purple glow border ────────────────────────────────────────────── */
+.panel-glow {
+  box-shadow:
+    0 0 0 1px #333333,
+    0 0 20px 2px rgba(255,255,255,0.05),
+    0 0 48px 6px rgba(255,255,255,0.02);
+}
+
+/* ── All game buttons — flat white border, translate on active ───────────── */
+.btn-primary {
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.btn-primary:not(:disabled):active {
+  box-shadow: none !important;
+  transform: translate(3px, 3px);
+}
+
+/* ── Ghost shares same active behaviour ──────────────────────────────────── */
+.btn-ghost {
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.btn-ghost:not(:disabled):active {
+  box-shadow: none !important;
+  transform: translate(3px, 3px);
+}
+
+/* ── Animated floating-label input ──────────────────────────────────────── */
+.form-control {
+  position: relative;
+  margin: 10px 0 36px;
+  width: 100%;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #444 solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 17px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: #ffffff;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+  display: flex;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 17px;
+  min-width: 5px;
+  color: #888;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: #ffffff;
+  transform: translateY(-30px);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #333333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #555555; }
+
+/* ── Focus ring ──────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* ── Chat send button hover ──────────────────────────────────────────────── */
+.send-button:hover {
+  background-color: #f0f0f0 !important;
+  color: #111 !important;
+  box-shadow: 0 4px 18px 0 rgba(0,0,0,0.25);
+}
